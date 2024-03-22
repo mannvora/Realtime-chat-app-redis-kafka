@@ -4,7 +4,15 @@ import { Redis } from "ioredis";
 
 const dotenv = require('dotenv');
 
-const redisUri = "redis://default:AVNS_ZbKAWoDpYXIUwbDMKPJ@redis-109abe5e-scalable-chat-socketio.a.aivencloud.com:13594"
+// Import the dotenv package
+require('dotenv').config();
+
+// Get the REDIS_PASSWORD from the environment variables
+const redisPassword = process.env.REDIS_PASSWORD;
+
+// Define your redisUri with the REDIS_PASSWORD variable
+const redisUri = `redis://default:${redisPassword}@redis-109abe5e-scalable-chat-socketio.a.aivencloud.com:13594`;
+
 const pub = new Redis(redisUri);
 const sub = new Redis(redisUri);
 

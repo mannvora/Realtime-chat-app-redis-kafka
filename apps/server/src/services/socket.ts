@@ -10,9 +10,10 @@ require('dotenv').config();
 // Get the REDIS_PASSWORD from the environment variables
 const redisPassword = process.env.REDIS_PASSWORD;
 const redisHost = process.env.REDIS_HOST;
+const redisPort = process.env.REDIS_PORT;
 
 // Define your redisUri with the REDIS_PASSWORD variable
-const redisUri = `redis://default:${redisPassword}@${redisHost}:13594`;
+const redisUri = `redis://default:${redisPassword}@${redisHost}:${redisPort}`;
 
 const pub = new Redis(redisUri);
 const sub = new Redis(redisUri);
